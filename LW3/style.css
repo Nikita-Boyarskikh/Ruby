@@ -1,0 +1,21 @@
+div.table {
+  display: table;
+  width: 100%;
+}
+div.tbody {
+  display: table-row-group;
+}
+div.thead {
+  display: table-header-group;
+}
+div.tr {
+  display: table-row;
+}
+div.td, div.th {
+  border: 1px solid #999999;
+  display: table-cell;
+  padding: 3px 10px;
+}
+div.th {
+  font-weight: bold;
+}

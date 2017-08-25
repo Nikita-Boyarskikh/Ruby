@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Laboratory work 3. Part 1.</title>
+    <meta name="author" content="Boyarskikh Nikita">
+    <meta http-equiv="Content-Type" content="test/html; charset=utf-8">
+    <link rel="stylesheet" href="style.css"></style>
+  </head>
+  <body>
+    <h1>Оформление заказа</h1>
+    <h3>Список товаров:</h3>
+    <div class="table" id="market">
+      <div class="thead">
+        <div class="tr">
+          <div class="th">Наименование</div>
+          <div class="th">Стоимость (руб.)</div>
+        </div>
+      </div>
+      <div class="tbody">
+        <div class="tr">
+          <div class="td">IPhone 15</div>
+          <div class="td cost">100500</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Добавить товар</h3>
+    <form id="add_one">
+      <p>Наименование: <input type="text" name="Title" id="one_title" placeholder="Наименование товара"></p>
+      <p>Стоимость: <input type="number" name="Cost" id="one_cost" value=100> руб.</p>
+      <p><input type="button" value="Добавить" id="add"></p>
+    </form>
+
+    <h3>Корзина:</h3>
+    <div class="table" id="basket">
+      <div class="thead">
+        <div class="tr">
+          <div class="th">Наименование</div>
+          <div class="th">Стоимость (руб.)</div>
+        </div>
+      </div>
+      <div class="tbody">
+      </div>
+    </div>
+
+    <p><input type="button" id="calc_summary" value="Рассчитать итоговую стоимость заказа"></p>
+    <p>Итоговая стоимость: <span id="summary"></span></p>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script src="http://rawgit.com/notifyjs/notifyjs/master/dist/notify.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
