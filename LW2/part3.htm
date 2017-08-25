@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Laboratory work 2. Part 3.</title>
+    <meta name="author" content="Boyarskikh Nikita">
+    <meta http-equiv="Content-Type" content="test/html; charset=utf-8">
+    <style>
+      div.table {
+          text-align: center;
+          display: table;
+          width: 100%;
+      }
+      div.tr {
+          display: table-row;
+      }
+      div.th {
+          display: table-cell;
+          font-weight: bold;
+      }
+      div.td {
+          display: table-cell;
+      } 
+
+      a.button {
+          align-items: flex-start;
+          text-align: center;
+          cursor: default;
+          color: buttontext;
+          background-color: buttonface;
+          box-sizing: border-box;
+          padding: 1px 6px;
+          border-width: 2px;
+          border-style: outset;
+          border-color: buttonface;
+          border-image: initial;
+          -webkit-appearance: push-button;
+          text-decoration: none;
+          font: 13.3333px Arial;
+          display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="table">
+      <div class="tr">
+        <div class="th">Ссылки</div>
+        <div class="th">Кнопки</div>
+      </div>
+      <div class="tr">
+        <div class="td">
+          <p><a href="/0" class="button">Жми меня (0)!</a></p>
+          <p><a href="/1" class="button">Жми меня (1)!</a></p>
+          <p><a href="/2" class="button">Жми меня (2)!</a></p>
+          <p><a href="/3" class="button">Жми меня (3)!</a></p>
+          <p><a href="/4" class="button">Жми меня (4)!</a></p>
+          <p><a href="/5" class="button">Жми меня (5)!</a></p>
+          <p><a href="/6" class="button">Жми меня (6)!</a></p>
+          <p><a href="/7" class="button">Жми меня (7)!</a></p>
+          <p><a href="/8" class="button">Жми меня (8)!</a></p>
+          <p><a href="/9" class="button">Жми меня (9)!</a></p>
+        </div>
+        <div class="td">
+          <form method="GET">
+            <p><input formaction="/0" type="submit" value="Жми меня (0)!"></p>
+            <p><input formaction="/1" type="submit" value="Жми меня (1)!"></p>
+            <p><input formaction="/2" type="submit" value="Жми меня (2)!"></p>
+            <p><input formaction="/3" type="submit" value="Жми меня (3)!"></p>
+            <p><input formaction="/4" type="submit" value="Жми меня (4)!"></p>
+            <p><input formaction="/5" type="submit" value="Жми меня (5)!"></p>
+            <p><input formaction="/6" type="submit" value="Жми меня (6)!"></p>
+            <p><input formaction="/7" type="submit" value="Жми меня (7)!"></p>
+            <p><input formaction="/8" type="submit" value="Жми меня (8)!"></p>
+            <p><input formaction="/9" type="submit" value="Жми меня (9)!"></p>
+          </form>
+        </div>
+      </div>
+  </body>
+</html>
