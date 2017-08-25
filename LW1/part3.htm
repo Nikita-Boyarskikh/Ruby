@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Laboratory work 1. Part 3.</title>
+    <meta name="author" content="Boyarskikh Nikita">
+    <meta http-equiv="Content-Type" content="test/html; charset=utf-8">
+  </head>
+  <body>
+    <form action="/" method="GET">
+      <p>
+        <b>Имя</b><br>
+        <input type="text" name="name" placeholder="Имя" required>
+      </p>
+      <p>
+        <b>Фамилия</b><br>
+        <input type="text" name="lastname" placeholder="Фамилия" required>
+      </p>
+      <p>
+        <b>Пол</b><br>
+        <input type="radio" name="gender" value="male" required checked>Мужчина<br>
+        <input type="radio" name="gender" value="famale">Другое<br>
+      </p>
+      <p>
+        <b>Город проживания</b><br>
+        <input type="text" name="city" list="city" placeholder="Введите город или выберите из списка"></p>
+          <datalist id="city">
+            <option>Москва</option>
+            <option>Санкт-Питербург</option>
+            <option>Нижний Новгород</option>
+            <option>Казань</option>
+            <option>Ростов-на-Дону</option>
+            <option>Екатеринбург</option>
+            <option>Новосибирск</option>
+            <option>Симферополь</option>
+            <option>Киев</option>
+            <option>Ньюберипорт</option>
+            <option>Истанбул</option>
+            <option>Берлин</option>
+            <option>Минск</option>
+            <option>Люцерн</option>
+            <option>Шанхай</option>
+            <option>Алматы</option>
+          </datalist>
+      <p>
+        <input type="submit" value="Отправить">
+      </p>
+    </form>
+  </body>
+</html>
