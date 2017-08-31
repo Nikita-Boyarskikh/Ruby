@@ -2,9 +2,9 @@
 
 def correct(words, word_to_correct)
   words.each_index do |i|
-    words[i] = nil if words[i][0] == 'л' && i.even?
-    words[i] = word_to_correct if words[i][0] == 'н' && i.odd?
+    words[i] = nil if i.even? && words[i][0] == 'л'
+    words[i] = word_to_correct if i.odd? && words[i][0] == 'н'
   end
 
-  return words.compact
+  words.compact
 end

@@ -30,55 +30,55 @@ class FileRewriterTest < Minitest::Test
   end
 
   def test_rewrite_file_chank_lt_n
-    File.open(@temp_file_in, 'w') { |file|
+    File.open(@temp_file_in, 'w') do |file|
       file.write([
-           1,  2,  3,  4,  5,
-           6,  7,  8,  9,  10,
-          -1, -2, -3, -4, -5,
-          -6, -7, -8, -9, -10
-        ].join("\n"))
-    }
+        1,  2,  3,  4,  5,
+        6,  7,  8,  9,  10,
+        -1, -2, -3, -4, -5,
+        -6, -7, -8, -9, -10
+      ].join("\n"))
+    end
 
     rewriter = FileRewriter.new(@temp_file_in, @temp_file_out, 5, 10, 100)
     rewriter.rewrite_file
 
     assert_equal(IO.read(@temp_file_out), [
-       1,  2,  3,  4,  5,
+      1, 2, 3, 4, 5,
       -1, -2, -3, -4, -5,
-       6,  7,  8,  9,  10,
+      6,  7,  8,  9,  10,
       -6, -7, -8, -9, -10
-    ].join("\n"),
-    'rewrite from 10 to 5 is ok')
+    ].join("\n"), 'rewrite from 10 to 5 is ok')
   end
 
   def test_rewrite_file_chank_gt_n
-    File.open(@temp_file_in, 'w') { |file|
+    File.open(@temp_file_in, 'w') do |file|
       file.write([
-           1,  2,  3,  4,  5,  6,  7,  8,  9,  10,
-          -1, -2, -3, -4, -5, -6, -7, -8, -9, -10,
-           1,  2,  3,  4,  5,  6,  7,  8,  9,  10,
-          -1, -2, -3, -4, -5, -6, -7, -8, -9, -10
-        ].join("\n"))
-    }
+        1,  2,  3,  4,  5, 6, 7, 8, 9, 10,
+        -1, -2, -3, -4, -5, -6, -7, -8, -9, -10,
+        1,  2,  3,  4,  5,  6,  7,  8,  9,  10,
+        -1, -2, -3, -4, -5, -6, -7, -8, -9, -10
+      ].join("\n"))
+    end
 
     rewriter = FileRewriter.new(@temp_file_in, @temp_file_out, 20, 10, 100)
     rewriter.rewrite_file
 
     assert_equal(IO.read(@temp_file_out), [
-       1,  2,  3,  4,  5,  6,  7,  8,  9,  10,
-       1,  2,  3,  4,  5,  6,  7,  8,  9,  10,
+      1, 2, 3, 4, 5, 6, 7, 8, 9,  10,
+      1,  2,  3,  4,  5,  6,  7,  8,  9,  10,
       -1, -2, -3, -4, -5, -6, -7, -8, -9, -10,
       -1, -2, -3, -4, -5, -6, -7, -8, -9, -10
-    ].join("\n"),
-    'rewrite from 10 to 20 is ok')
+    ].join("\n"), 'rewrite from 10 to 20 is ok')
   end
 
   private
+
   def check_generate_file(chank_size = Random.rand(max_number) + 1,
-                         n = Random.rand(max_number) + 1,
-                         max_number = 100)
+                          n = Random.rand(max_number) + 1,
+                          max_number = 100)
     begin
-      rewriter = FileRewriter.new(@temp_file_in, @temp_file_out, n, chank_size, max_number)
+      rewriter = FileRewriter.new(@temp_file_in, @temp_file_out,
+                                  n, chank_size, max_number)
       rewriter.generate_file
 
       is_odd = true
@@ -87,8 +87,10 @@ class FileRewriterTest < Minitest::Test
         lines_counter = 0
         while x = file.gets
           assert (Integer(x) >= 0 && !is_odd) || (Integer(x) <= 0 && is_odd)
-          lines_counter++
-          is_odd = !is_odd if lines_counter % n == 0
+          if (lines_counter % n).zero?
+            lines_counter += 1
+            is_odd = !is_odd
+          end
         end
       end
     rescue Exception => e

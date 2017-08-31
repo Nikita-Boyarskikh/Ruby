@@ -1,3 +1,4 @@
+# Custom Number class
 class MyNumber
   attr_reader :num
 

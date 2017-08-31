@@ -1,5 +1,6 @@
 require_relative 'mynumber'
 
+# Class with 2 fields: @num and @str
 class NumberString < MyNumber
   attr_reader :num, :str
 

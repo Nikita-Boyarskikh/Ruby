@@ -2,10 +2,10 @@
 # with change size of chanks of same-significal numbers
 class FileRewriter
   # Error message, raises if input file F have incorrect format
-  BROKEN_FILE_ERROR = 'Unexpected end of file found'
+  BROKEN_FILE_ERROR = 'Unexpected end of file found'.freeze
 
   # Error message, raises if program can't open file
-  PERMISSION_ERROR = 'Can\'t open file. Please, check permissions'
+  PERMISSION_ERROR = 'Can\'t open file. Please, check permissions'.freeze
 
   def initialize(f, p, n, chank_size = 10, max_number = 100)
     @in_filename = f          # Name of the input file
@@ -31,7 +31,8 @@ class FileRewriter
     out.close
   end
 
-  # Rewrites file F into file P with change size of chanks of same-significal numbers
+  # Rewrites file F into file P with change
+  # size of chanks of same-significal numbers
   def rewrite_file
     infile = File.open(@in_filename) or raise IOError, PERMISSION_ERROR
     outfile = File.open(@out_filename, 'w') or raise IOError, PERMISSION_ERROR
@@ -83,7 +84,7 @@ class FileRewriter
   # Rewrite numbers from file started with positive
   def _n_gt_chunk_size_rewrite(infile, outfile, x)
     buffer1 = x.odd? ? @positive : @negative
-    buffer2 = x.even?  ? @positive : @negative
+    buffer2 = x.even? ? @positive : @negative
 
     if buffer1.empty?
       numbers = @n

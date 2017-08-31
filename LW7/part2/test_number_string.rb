@@ -1,7 +1,6 @@
 #!/usr/bin/ruby
 # coding: utf-8
 
-
 require 'simplecov'
 SimpleCov.start
 
@@ -9,29 +8,30 @@ require 'minitest/autorun'
 
 require_relative 'number_string'
 
+# Testing NumberString class methods
 class NumberStringTest < Minitest::Test
   def test_inspect
-    num = NumberString.new(233254, 'blablabla')
+    num = NumberString.new(233_254, 'blablabla')
     assert_equal num.inspect,
-      '{"num":233254,"str":"blablabla"}',
-      'inspect is ok'
+                 '{"num":233254,"str":"blablabla"}',
+                 'inspect is ok'
   end
 
   def test_to_s
     num = NumberString.new(234, 'string')
     assert_equal num.to_s,
-      '{"num":234,"str":"string"}',
-      'to_s is ok'
+                 '{"num":234,"str":"string"}',
+                 'to_s is ok'
   end
 
   def test_print
     origin_stdout = $stdout
     $stdout = StringIO.new
-    num = NumberString.new(342, "Hello, World!")
+    num = NumberString.new(342, 'Hello, World!')
     num.print
     assert_equal $stdout.string,
-      "{\"num\":342,\"str\":\"Hello, World!\"}\n",
-      'print is ok'
+                 "{\"num\":342,\"str\":\"Hello, World!\"}\n",
+                 'print is ok'
     $stdout = origin_stdout
   end
 

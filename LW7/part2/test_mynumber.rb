@@ -8,9 +8,10 @@ require 'minitest/autorun'
 
 require_relative 'mynumber'
 
+# Testing MyNumber class methods
 class MyNumberTest < Minitest::Test
   def test_inspect
-    num = MyNumber.new(233254)
+    num = MyNumber.new(233_254)
     assert_equal num.inspect, '233254', 'inspect is ok'
   end
 
@@ -29,7 +30,7 @@ class MyNumberTest < Minitest::Test
   end
 
   def test_num_of_digits
-    num = MyNumber.new(3523532)
+    num = MyNumber.new(3_523_532)
     assert_equal num.num_of_digits, 7, 'num_of_digits(3523532) == 7'
     num = MyNumber.new(2)
     assert_equal num.num_of_digits, 1, 'num_of_digits(2) == 1'

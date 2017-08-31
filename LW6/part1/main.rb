@@ -10,5 +10,5 @@ def calc_iterations(e)
     y += (-1)**(n - 1) * Math.sin(n * x) / n
   end
 
-  return n
+  n
 end

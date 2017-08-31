@@ -20,5 +20,5 @@ def my_trap(a, b, block = nil)
   end
   result *= delta
 
-  return result
+  result
 end
