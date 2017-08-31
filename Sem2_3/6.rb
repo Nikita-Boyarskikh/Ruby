@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-while s = gets do
+while s = gets
   begin
     binding.eval(s)
   rescue Exception => e

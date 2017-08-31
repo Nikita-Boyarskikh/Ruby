@@ -8,7 +8,7 @@ def procedure_select(arr)
     result << name if name.length > 5
   end
 
-  return result
+  result
 end
 
 p procedure_select(arr)

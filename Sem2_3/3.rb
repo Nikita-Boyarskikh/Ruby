@@ -16,7 +16,7 @@ def common_parents(class1, class2)
     class2 = sup
   end
 
-  return superclasses1 & superclasses2
+  superclasses1 & superclasses2
 end
 
 p Class2.superclass == Class1

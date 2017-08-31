@@ -19,7 +19,7 @@ class Array
       result = (block_given? ? yield(result, item) : block.call(result, item))
     end
 
-    return result
+    result
   end
 end
 

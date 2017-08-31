@@ -6,7 +6,7 @@ def procedure_map(array, method)
     result.push method.call(item)
   end
 
-  return result
+  result
 end
 
 def procedure_reduce(array, method, initial = 0)
@@ -16,7 +16,7 @@ def procedure_reduce(array, method, initial = 0)
     result = method.call(result, item)
   end
 
-  return result
+  result
 end
 
 array = [1, 34, 5, 3, 4, 6]
