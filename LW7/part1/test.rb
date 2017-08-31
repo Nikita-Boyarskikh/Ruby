@@ -47,7 +47,8 @@ class FileRewriterTest < Minitest::Test
       -1, -2, -3, -4, -5,
        6,  7,  8,  9,  10,
       -6, -7, -8, -9, -10
-    ].join("\n"))
+    ].join("\n"),
+    'rewrite from 10 to 5 is ok')
   end
 
   def test_rewrite_file_chank_gt_n
@@ -68,7 +69,8 @@ class FileRewriterTest < Minitest::Test
        1,  2,  3,  4,  5,  6,  7,  8,  9,  10,
       -1, -2, -3, -4, -5, -6, -7, -8, -9, -10,
       -1, -2, -3, -4, -5, -6, -7, -8, -9, -10
-    ].join("\n"))
+    ].join("\n"),
+    'rewrite from 10 to 20 is ok')
   end
 
   private
