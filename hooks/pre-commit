@@ -1,4 +1,4 @@
 #!/bin/bash
 pattern='.*'
-files_modified=`git diff-index --cached --name-only HEAD | grep -P $pattern | grep -v vendor | xargs`
-rubocop -RFa $files_modified
+files_modified=`git diff-index --cached --name-only HEAD | grep -P "$pattern" | grep -v vendor | xargs`
+rubocop -Ra $files_modified
