@@ -1,5 +1,4 @@
 #!/usr/bin/ruby
-# coding: utf-8
 
 require_relative 'mynumber'
 require_relative 'number_string'

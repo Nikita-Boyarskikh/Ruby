@@ -1,5 +1,3 @@
-# coding: utf-8
-
 def correct(words, word_to_correct)
   words.each_index do |i|
     words[i] = nil if i.even? && words[i][0] == 'л'
