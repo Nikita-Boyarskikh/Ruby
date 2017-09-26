@@ -9,6 +9,8 @@ $(document).ready(function () {
   }
   function update() {
     let $elems = $(".cost");
+    $elems.off("mouseover");
+    $elems.off("mouseleave");
     $elems.mouseover(on_mouse_over);
     $elems.mouseleave(on_mouse_leave);
   }
@@ -28,31 +30,37 @@ $(document).ready(function () {
 
     let errors = [];
     if (!title) {
-      err_msg = "You forget to type title of an item";
+      const err_msg = "You forget to type title of an item";
       $title.notify(err_msg, {position: "top"});
       errors.push(err_msg);
     }
-    if (!parseInt(cost)) {
-      err_msg = "Cost is not a number";
+    if (cost != parseInt(cost)) {
+      const err_msg = "Cost is not a number";
       $cost.notify(err_msg, {position: "top"});
       errors.push(err_msg);
     }
     if (errors.length > 0) {
-      for (i in errors) {
+      for (let i in errors) {
         console.error(errors[i]);
       }
     } else {
 
-      $("#basket div.tbody").append(
-        "<div class="tr">" +
-          "<div class="td">" + title +
+      $("#market div.tbody").append(
+        "<div class=\"tr\">" +
+          "<div class=\"td\">" + title +
           "</div>" +
-          "<div class="td cost">" + cost +
+          "<div class=\"td cost\">" + cost +
           "</div>" +
         "</div>"
       );
 
-      console.log("Added new item "" + title + "" with cost=" + cost);
+      $("#market div.tbody div.tr").draggable({
+        connectToSortable: "#basket div.tbody",
+        helper: "clone",
+        stop: update
+      });
+
+      console.log("Added new item \"" + title + "\" with cost=" + cost);
 
       update();
     }
@@ -63,7 +71,7 @@ $(document).ready(function () {
 
     try {
       summary = $("#basket div.cost").get().reduce(function (sum, cur) {
-        cost = parseInt(cur.innerText);
+        let cost = parseInt(cur.innerText);
         if(!cost) throw new Error("Cost is not a number");
         return sum + cost;
       }, 0);
