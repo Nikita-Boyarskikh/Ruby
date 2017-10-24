@@ -1,23 +1,20 @@
 require 'mathn'
 
-def half_x_sumrow(x)
-  n = 0
-
-  loop do
-    n += 1
-    yield (-1)**(n - 1) * Math.sin(n * x) / n
-  end
-end
-
 def calc_iterations(e)
   y = 0
   x = 2
   n = 0
 
-  half_x_sumrow(x) do |delta|
-    y += delta
-    n += 1
-
-    return n if (x / 2 - y).abs < e
+  half_x_sumrow = Enumerator.new do |yielder|
+    loop do
+      n += 1
+      yielder << (-1)**(n - 1) * Math.sin(n * x) / n
+    end
   end
+
+  result = half_x_sumrow.take_while do |delta|
+    y += delta
+    (x / 2.0 - y).abs >= e
+  end
+  n
 end

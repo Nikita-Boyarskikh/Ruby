@@ -11,7 +11,9 @@ require_relative 'number_string'
 # Test right hierarchy of classes
 class Hierarchy < Minitest::Test
   def test_hierarchy
-    assert_includes NumberString.ancestors, MyNumber,
+    ns = NumberString.new
+    mn = MyClass.new
+    assert_includes ns.class.ancestors, mn.class,
                     'NumberString class is a descendant of the MyNumber class'
   end
 end

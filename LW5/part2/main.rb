@@ -1,8 +1,11 @@
 def correct(words, word_to_correct)
-  words.each_index do |i|
-    words[i] = nil if i.even? && words[i][0] == 'л'
-    words[i] = word_to_correct if i.odd? && words[i][0] == 'н'
-  end
-
-  words.compact
+  words.each_with_index.map do |word, i|
+    if i.even? && word[0] == 'л'
+      nil
+    elsif i.odd? && word[0] == 'н'
+      word_to_correct
+    else
+      word
+    end
+  end.compact
 end

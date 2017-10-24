@@ -4,7 +4,7 @@ require_relative 'main'
 
 def main
   print 'Введите слово для замены: '
-  word = gets.chomp.split[0]
+  word = gets.scan(/\w+/).first
 
   result = []
 
