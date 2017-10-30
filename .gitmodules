@@ -1,0 +1,3 @@
+[submodule "Automorph"]
+	path = Automorph
+	url = git@github.com:Nikita-Boyarskikh/Automorph.git
