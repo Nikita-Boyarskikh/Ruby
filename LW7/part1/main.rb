@@ -60,7 +60,7 @@ class FileRewriter
   # Saves n numbers from input file 'from' into given buffer
   def _save_n_numbers(from, to, n)
     n.times do
-      raise EOFError, BROKEN_FILE_ERROR if from.eof?
+      return if from.eof?
       to.unshift from.gets
     end
   end
@@ -68,17 +68,14 @@ class FileRewriter
   # Rewrites n numbers from input file 'from' into output file 'to'
   def _rewrite_n_numbers(from, to, n)
     n.times do
-      raise EOFError, BROKEN_FILE_ERROR if from.eof?
+      return if from.eof?
       to.print from.gets
     end
   end
 
   # Prints n numbers from given buffer into output file 'to'
   def _print_n_numbers_from_buffer(from, to, n)
-    n.times do
-      raise EOFError, BROKEN_FILE_ERROR if from.empty?
-      to.print from.pop
-    end
+    to.print from.pop(n).reverse.join
   end
 
   # Rewrite numbers from file started with positive
