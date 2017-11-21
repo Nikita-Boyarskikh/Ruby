@@ -1,0 +1,23 @@
+<h1>Rk2#Билет 18</h1>
+<% if @error %>
+    <p><%= @error %></p>
+<% else %>
+  <h2>Результат:</h2>
+  <table id="result" width="50%" style="text-align: center" border="1px solid black">
+    <thead>
+      <tr>
+        <td>Индекс</td>
+        <td>Элемент</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @result.each_with_index do |el, i| %>
+          <tr>
+            <td><%= i %></td>
+            <td><%= el %></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+<%= link_to "Вернуться", :rk2_input %>
