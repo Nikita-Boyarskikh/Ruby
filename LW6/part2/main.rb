@@ -12,7 +12,7 @@ def calc_iterations(e)
     end
   end
 
-  result = half_x_sumrow.take_while do |delta|
+  half_x_sumrow.take_while do |delta|
     y += delta
     (x / 2.0 - y).abs >= e
   end

@@ -1,7 +1,7 @@
 # Number of segments of the split
 N = 30_000
 
-def my_trap(a, b, block = nil)
+def my_trap(a, b, _block = nil)
   foo_a = yield a
   foo_b = yield b
 
