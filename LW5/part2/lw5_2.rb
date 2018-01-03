@@ -1,10 +1,10 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 
 require_relative 'main'
 
 def main
   print 'Введите слово для замены: '
-  word = gets.scan(/\w+/).first
+  word = gets.chomp
 
   result = []
 
